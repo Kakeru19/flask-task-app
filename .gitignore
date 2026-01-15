@@ -1,1 +1,3 @@
-*.db
+task.db
+__pycache__/
+.env
