@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Task App</title>
+</head>
+<body>
+    <form action="/logout" method="GET" style="display:inline;">
+        <button>ログアウト</button>
+    </form>
+    
+    <h1>タスク管理</h1>
+
+    <form method="POST">
+        <input type="text" name="title" placeholder="タスク名" required>
+        <button type="submit">追加</button>
+    </form>
+
+    <h2>タスク一覧</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task[1] }}
+                <form action="/delete/{{ task[0] }}" method="POST" style="display:inline;">
+                    <button type="submit">削除</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
